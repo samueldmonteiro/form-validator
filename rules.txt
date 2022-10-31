@@ -1,0 +1,7 @@
+required
+min:4
+max:5
+type:
+    email
+    phone
+    data

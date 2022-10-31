@@ -67,7 +67,14 @@ body {
 }
 
 .form-detail .form-row {
-    position: relative
+    position: relative;
+    margin-top: 10px;
+}
+
+.form-detail .form-row .input-alert {
+    display: block;
+    padding: 8px 0px;
+    font-size: 0.9em;
 }
 
 .form-detail .form-row-last {
@@ -77,11 +84,17 @@ body {
 .form-detail label {
     display: block;
     font-size: 18px;
-    padding-bottom: 10px
+    padding-bottom: 10px;
 }
 
-.form-detail .input-text {
-    margin-bottom: 26px
+.form-detail .input-text.error {
+    border-color: #e1131370;
+    transition: 0.3s;
+}
+
+.form-detail .input-text.success {
+    border-color: #5eb2b391;
+    transition: 0.3s;
 }
 
 .form-detail input {
