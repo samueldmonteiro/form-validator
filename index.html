@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validator</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="page-content">
+        <div class="form-v5-content">
+            <form class="form-detail" action="#" method="post">
+                <h2>Formulário de Registro</h2>
+                <div class="form-row">
+                    <label for="full-name">Nome Completo</label>
+                    <input type="text" name="full-name" id="full-name" class="input-text" placeholder="Your Name"
+                        required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="form-row">
+                    <label for="your-email">E-mail</label>
+                    <input type="text" name="your-email" id="your-email" class="input-text" placeholder="Your Email"
+                        required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="form-row">
+                    <label for="password">Senha</label>
+                    <input type="password" name="password" id="password" class="input-text" placeholder="Your Password"
+                        required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="form-row-last">
+                    <input type="submit" name="register" class="register" value="Registrar">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="modules" src="./js/app.js"></script>
+</body>
+
+</html>
