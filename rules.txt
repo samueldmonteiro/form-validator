@@ -4,4 +4,3 @@ max:5
 type:
     email
     phone
-    data

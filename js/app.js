@@ -1,12 +1,13 @@
 
-const registerForm = document.querySelector("#registerForm");
+const formsToValidate = document.querySelectorAll(".validate-form");
 
-if (registerForm) {
-    registerForm.addEventListener("submit", e => {
+formsToValidate.forEach(form => {
+
+    form.addEventListener("submit", e => {
         e.preventDefault();
         formValidator.validate(e.currentTarget);
     });
-}
+});
 
 const formValidator = {
 
@@ -16,20 +17,33 @@ const formValidator = {
 
         let submit = true;
         const inputs = form.querySelectorAll("input");
+        const inputsToValidate = [];
 
         inputs.forEach(input => {
             if (input.getAttribute('validate')) {
-
-                if (!this.checkInput(input)) {
-                    submit = false;
-                    this.setAlert(input);
-                } else {
-                    this.clearAlert(input);
-                }
+                inputsToValidate.push(input);
             }
         });
 
-        if(submit){
+        for (let input of inputsToValidate) {
+
+            if (!this.checkInput(input)) {
+                submit = false;
+                this.setAlert(input);
+
+                for (let input of inputsToValidate) {
+                    if (this.checkInput(input)) {
+                        this.clearAlert(input);
+                    }
+                }
+                break;
+
+            } else {
+                this.clearAlert(input);
+            }
+        }
+
+        if (submit) {
             form.submit();
         }
     },
@@ -74,7 +88,6 @@ const formValidator = {
 
         return true;
     },
-
 
     setAlert(input) {
 
